@@ -1,40 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Miracle Tree
 
-## Getting Started
+Miracle Tree is responsive blog application using Next.js and Tailwind CSS. The app fetch and display blog posts from an API, use dynamic routing, and demonstrate interactivity.
 
-First, run the development server:
+## Features
 
+### 1. Navigation Bar
+- Links to "Home" and "About" pages.
+- Active route highlighting using Tailwind CSS classes.
+- Hover effects for a dynamic user experience.
+
+### 2. Posts Display
+- Fetch and display a list of posts from an external API (e.g., JSONPlaceholder).
+- Each post includes a title, body, and associated hashtags.
+- Posts update dynamically based on selected hashtags.
+
+### 3. Post Details
+- View detailed information about a single post by clicking on it.
+- Detailed view includes the post title, body, and all associated hashtags.
+- Navigate back to the list of posts from the details page.
+
+### 4. Hashtag Filtering
+- Dynamically filter posts by clicking on the last hashtag of each post.
+- Display only the posts associated with the selected hashtag.
+- Clear filter to view all posts.
+---
+
+## Tech Stack
+
+- **Next.js**: Framework for server-side rendering and static site generation.
+- **TypeScript**: Strongly-typed language for predictable and maintainable code.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+
+---
+
+## Installation
+
+1. **Clone the Repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/andremmoreno/miracle-tree.git
+cd miracle-tree
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. **Run the Development Server**
+```bash
+npm run dev
+```
+- Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## File Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```
+├── components
+│   └── Navbar.tsx          # Navigation bar component
+│   └── Post.tsx            # Post component
+├── pages
+│   ├── _app.tsx            # App layout with Navbar
+│   ├── index.tsx           # Home page with posts and hashtag filtering
+│   ├── [id].tsx            # Post details page
+│   └── about.tsx           # About page
+├── styles
+│   └── globals.css         # Global styles with Tailwind CSS
+├── public
+│   └── assets              # Static assets (images, icons, etc.)
+└── package.json            # Project dependencies and scripts
+```
