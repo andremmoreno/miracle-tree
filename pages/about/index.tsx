@@ -1,7 +1,10 @@
+import Navbar from "@/components/Navbar";
+
 export default function About() {
   return (
-    <div>
-      ABOUT
-    </div>
+    <>
+      <Navbar />
+      <p className="text-2xl">About Us</p>
+    </>
   );
 }
