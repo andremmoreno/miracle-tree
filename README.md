@@ -7,7 +7,6 @@ Miracle Tree is responsive blog application using Next.js and Tailwind CSS. The 
 ### 1. Navigation Bar
 - Links to "Home" and "About" pages.
 - Active route highlighting using Tailwind CSS classes.
-- Hover effects for a dynamic user experience.
 
 ### 2. Posts Display
 - Fetch and display a list of posts from an external API (e.g., JSONPlaceholder).
@@ -16,11 +15,11 @@ Miracle Tree is responsive blog application using Next.js and Tailwind CSS. The 
 
 ### 3. Post Details
 - View detailed information about a single post by clicking on it.
-- Detailed view includes the post title, body, and all associated hashtags.
+- Detailed view includes the post title, body.
 - Navigate back to the list of posts from the details page.
 
 ### 4. Hashtag Filtering
-- Dynamically filter posts by clicking on the last hashtag of each post.
+- Dynamically filter posts by clicking on the last hashtag.
 - Display only the posts associated with the selected hashtag.
 - Clear filter to view all posts.
 ---
@@ -58,7 +57,7 @@ npm run dev
 
 ```
 ├── components
-│   └── Navbar.tsx          # Navigation bar component
+│   ├── Navbar.tsx          # Navigation bar component
 │   └── Post.tsx            # Post component
 ├── pages
 │   ├── _app.tsx            # App layout with Navbar
@@ -71,3 +70,11 @@ npm run dev
 │   └── assets              # Static assets (images, icons, etc.)
 └── package.json            # Project dependencies and scripts
 ```
+##Deployment
+
+This project is deployed on Vercel.
+
+###Live Demo
+
+Visit the live application at:
+https://miracle-tree.vercel.app
