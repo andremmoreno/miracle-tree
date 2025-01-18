@@ -33,7 +33,7 @@ export default function Home({ posts }: { posts: IPost[]}) {
           }
           {selectedHashtag && (
             <li>
-              <button onClick={() => handleHashtagClick(null)} className="text-xs bg-zinc-900 p-2 rounded-full">
+              <button onClick={() => handleHashtagClick(null)} className="text-xs mb-4 bg-zinc-900 p-2 rounded-full">
                 Clear Filter
               </button>
             </li>
