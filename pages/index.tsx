@@ -1,16 +1,47 @@
 import { IPost } from "@/types/Posts";
-import Navbar from "@/components/Navbar";
 import Post from "@/components/Post";
+import { useState } from "react";
+
+const hashtagsArray = ['#firstHashtag', '#secondHashtag', '#thirdHashtag'] 
 
 export default function Home({ posts }: { posts: IPost[]}) {
+  const [filteredPosts, setFilteredPosts] = useState(posts)
+  const [selectedHashtag, setSelectedHashtag] = useState<string | null>(null);
+
+  const handleHashtagClick = (hashtag: string | null) => {
+    setSelectedHashtag(hashtag);
+    if (hashtag && hashtag !== selectedHashtag) {
+      setFilteredPosts(posts.filter((post) => post.hashtag?.includes(hashtag)));
+    } else {
+      setSelectedHashtag(null)
+      setFilteredPosts(posts);
+    }
+  };
+
   return (
     <>
-      <Navbar />
       <section className="m-4">
-        <input placeholder="Search" className="my-4 rounded-sm"/>
+        <ul className="flex flex-wrap">
+          {
+            hashtagsArray.map((item, index) => (
+              <li key={index}>
+                <button onClick={() => handleHashtagClick(item)} className={`mr-4 mb-4 italic text-xs bg-zinc-900 p-2 rounded-full ${selectedHashtag === item && 'text-green-300'}`}>
+                  {item}
+                </button>
+              </li>
+            ))
+          }
+          {selectedHashtag && (
+            <li>
+              <button onClick={() => handleHashtagClick(null)} className="text-xs bg-zinc-900 p-2 rounded-full">
+                Clear Filter
+              </button>
+            </li>
+          )}
+        </ul>
         <ul className="grid md:grid-cols-2 sm:grid-cols-1 gap-5">
           {
-            posts.map((item: IPost) => 
+            filteredPosts.map((item: IPost) => 
               <Post key={item.id} post={item} />
             )
           }
@@ -24,10 +55,15 @@ export async function getStaticProps() {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     const posts = await res.json();
+
+    const postsHashtag = posts.map((post: IPost) => ({
+      ...post,
+      hashtag: hashtagsArray[Math.floor(Math.random() * hashtagsArray.length)]
+    }))
   
     return {
       props: {
-        posts,
+        posts: postsHashtag,
       },
     };
   } catch (error) {
